@@ -1,4 +1,3 @@
-#$msBuildPath = "$env:windir\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe"
 $msBuildPath = "C:\Program Files (x86)\MSBuild\14.0\Bin\MSBuild.exe"
 
 # publish website:
@@ -9,7 +8,6 @@ $msBuildPath = "C:\Program Files (x86)\MSBuild\14.0\Bin\MSBuild.exe"
 & $msBuildPath ..\ProductLaunch\ProductLaunch.MessageHandlers.IndexProspect\ProductLaunch.MessageHandlers.IndexProspect.csproj /p:OutputPath=..\..\docker\index-prospect\IndexProspectHandler
 
 # build images:
-docker build -t sixeyed/product-launch-web:v5 .\web
-docker build -t sixeyed/product-launch-save-handler:v5 .\save-prospect
-docker build -t sixeyed/product-launch-index-handler:v5 .\index-prospect
-docker build -t sixeyed/product-launch-homepage:v5 .\homepage
+docker build -t sixeyed/product-launch-web:v4 .\web
+docker build -t sixeyed/product-launch-save-handler:v4 .\save-prospect
+docker build -t sixeyed/product-launch-index-handler:v4 .\index-prospect

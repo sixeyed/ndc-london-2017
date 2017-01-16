@@ -35,29 +35,20 @@ services:
     networks:
       - app-net
 
-  homepage:
-    image: sixeyed/product-launch-homepage:v5
-    ports:
-      - "81:80"
-    networks:
-      - app-net
-
   product-launch-web:
-    image: sixeyed/product-launch-web:v5
+    image: sixeyed/product-launch-web:v4
     ports:
       - "80:80"
     environment:
-      - DB_CONNECTION_STRING=Server=product-launch-db;Database=ProductLaunch;User Id=sa;Password=NDC_l0nd0n;
-      - HOMEPAGE_URL=http://homepage
-    depends_on:
-      - homepage
+      - DB_CONNECTION_STRING=Server=product-launch-db;Database=ProductLaunch;User Id=sa;Password=NDC_l0nd0n;      
+    depends_on:      
       - product-launch-db
       - message-queue
     networks:
       - app-net
 
   save-prospect-handler:
-    image: sixeyed/product-launch-save-handler:v5
+    image: sixeyed/product-launch-save-handler:v4
     environment:
       - DB_CONNECTION_STRING=Server=product-launch-db;Database=ProductLaunch;User Id=sa;Password=NDC_l0nd0n;
     depends_on:
@@ -67,7 +58,7 @@ services:
       - app-net
 
   index-prospect-handler:
-    image: sixeyed/product-launch-index-handler:v5
+    image: sixeyed/product-launch-index-handler:v4
     depends_on:
       - elasticsearch
       - message-queue
