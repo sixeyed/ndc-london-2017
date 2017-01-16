@@ -46,7 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Config.cs" />
     <Compile Include="Initializers\StaticDataInitializer.cs" />
     <Compile Include="ProductLaunchContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

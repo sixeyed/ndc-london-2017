@@ -1,6 +1,4 @@
 ﻿using ProductLaunch.Entities;
-using ProductLaunch.Messaging;
-using ProductLaunch.Messaging.Messages.Events;
 using ProductLaunch.Model;
 using System;
 using System.Collections.Generic;
@@ -68,13 +66,15 @@ namespace ProductLaunch.Web
                 Role = role
             };
 
-            var eventMessage = new ProspectSignedUpEvent
+            using (var context = new ProductLaunchContext())
             {
-                Prospect = prospect,
-                SignedUpAt = DateTime.UtcNow
-            };
+                //reload child objects:
+                prospect.Country = context.Countries.Single(x => x.CountryCode == prospect.Country.CountryCode);
+                prospect.Role = context.Roles.Single(x => x.RoleCode == prospect.Role.RoleCode);
 
-            MessageQueue.Publish(eventMessage);
+                context.Prospects.Add(prospect);
+                context.SaveChanges();
+            }
 
             Server.Transfer("ThankYou.aspx");
         }

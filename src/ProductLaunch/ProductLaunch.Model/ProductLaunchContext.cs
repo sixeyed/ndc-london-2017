@@ -5,7 +5,7 @@ namespace ProductLaunch.Model
 {
     public class ProductLaunchContext : DbContext
     {
-        public ProductLaunchContext() : base(Config.DbConnectionString) { }
+        public ProductLaunchContext() : base("ProductLaunchDb") { }
 
         public DbSet<Country> Countries { get; set; }
 

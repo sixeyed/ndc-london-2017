@@ -4,7 +4,7 @@
 	So that I can be updated with news
 
 Scenario Outline: Sign Up with Valid Details
-	Given I browse to the Sign Up Page at "172.31.126.66"
+	Given I browse to the Sign Up Page at "localhost:57120"
 	And I enter details '<FirstName>' '<LastName>' '<EmailAddress>' '<CompanyName>' '<Country>' '<Role>'
 	When I press Go
 	Then I should see the Thank You page
@@ -17,7 +17,7 @@ Examples:
 	| Prospect  | D        | d.prospect@company.com | Company, Inc. | United Kingdom | IT Ops         |
 	| Prospect  | E        | e.prospect@company.com | Company, Inc. | United States  | Architect      |
 	| Prospect  | F        | f.prospect@other.com   | Other, Inc.   | Sweden         | Decision Maker |
-	| Prospect  | G        | g.prospect@company.com | Company, Inc. | United States  | Engineer |
+	| Prospect  | G        | g.prospect@company.com | Company, Inc. | United States  | Engineer       |
 	| Prospect  | H        | h.prospect@company.com | Company, Inc. | United States  | Architect      |
 	| Prospect  | I        | i.prospect@company.com | Company, Inc. | United Kingdom | Decision Maker |
 	| Prospect  | J        | j.prospect@company.com | Company, Inc. | United States  | Architect      |
