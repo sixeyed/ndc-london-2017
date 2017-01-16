@@ -10,7 +10,6 @@ COPY ProductLaunchWeb/_PublishedWebsites/ProductLaunch.Web /product-launch-web
 RUN New-Website -Name 'product-launch' -PhysicalPath 'C:\product-launch-web' -Port 80 -Force
 
 EXPOSE 80
-ENV MESSAGE_QUEUE_URL="nats://message-queue:4222"
 
 COPY ServiceMonitor.exe /
 COPY bootstrap.ps1 /

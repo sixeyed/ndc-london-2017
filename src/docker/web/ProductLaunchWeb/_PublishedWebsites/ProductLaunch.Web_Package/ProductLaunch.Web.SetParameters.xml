@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
   <setParameter name="IIS Web Application Name" value="Default Web Site/ProductLaunch.Web_deploy" />
+  <setParameter name="ProductLaunchDb-Web.config Connection String" value="Server=product-launch-db;Database=ProductLaunch;User Id=sa;Password=NDC_l0nd0n;" />
 </parameters>
