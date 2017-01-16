@@ -17,7 +17,7 @@ Examples:
 	| Prospect  | D        | d.prospect@company.com | Company, Inc. | United Kingdom | IT Ops         |
 	| Prospect  | E        | e.prospect@company.com | Company, Inc. | United States  | Architect      |
 	| Prospect  | F        | f.prospect@other.com   | Other, Inc.   | Sweden         | Decision Maker |
-	| Prospect  | G        | g.prospect@company.com | Company, Inc. | United States  | Engineer |
+	| Prospect  | G        | g.prospect@company.com | Company, Inc. | United States  | Engineer       |
 	| Prospect  | H        | h.prospect@company.com | Company, Inc. | United States  | Architect      |
 	| Prospect  | I        | i.prospect@company.com | Company, Inc. | United Kingdom | Decision Maker |
 	| Prospect  | J        | j.prospect@company.com | Company, Inc. | United States  | Architect      |

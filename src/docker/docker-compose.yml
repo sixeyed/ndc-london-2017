@@ -19,57 +19,24 @@ services:
     networks:
       - app-net
 
-  elasticsearch:
-    image: sixeyed/elasticsearch:windowsservercore
-    ports:
-      - "9200:9200"
-    networks:
-      - app-net
-
-  kibana:
-    image: sixeyed/kibana:windowsservercore
-    ports:
-      - "5601:5601"
-    depends_on:
-      - elasticsearch
-    networks:
-      - app-net
-
-  homepage:
-    image: sixeyed/product-launch-homepage:v5
-    ports:
-      - "81:80"
-    networks:
-      - app-net
-
   product-launch-web:
-    image: sixeyed/product-launch-web:v5
+    image: sixeyed/product-launch-web:v3
     ports:
       - "80:80"
     environment:
       - DB_CONNECTION_STRING=Server=product-launch-db;Database=ProductLaunch;User Id=sa;Password=NDC_l0nd0n;
-      - HOMEPAGE_URL=http://homepage
     depends_on:
-      - homepage
       - product-launch-db
       - message-queue
     networks:
       - app-net
 
   save-prospect-handler:
-    image: sixeyed/product-launch-save-handler:v5
+    image: sixeyed/product-launch-save-handler:v3
     environment:
       - DB_CONNECTION_STRING=Server=product-launch-db;Database=ProductLaunch;User Id=sa;Password=NDC_l0nd0n;
     depends_on:
       - product-launch-db
-      - message-queue
-    networks:
-      - app-net
-
-  index-prospect-handler:
-    image: sixeyed/product-launch-index-handler:v5
-    depends_on:
-      - elasticsearch
       - message-queue
     networks:
       - app-net
