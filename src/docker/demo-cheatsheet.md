@@ -45,3 +45,13 @@ docker logs docker_save-prospect-handler_1
 docker logs docker_index-prospect-handler_1
 dip docker_kibana_1
 ```
+
+# Demo - v5
+
+```
+git checkout v5
+.\build.ps1
+docker-compose up -d
+docker ps
+dip docker_product-launch-web_1
+```
