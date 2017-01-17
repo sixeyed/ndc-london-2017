@@ -12,5 +12,4 @@ RUN New-Website -Name 'product-launch' -PhysicalPath 'C:\product-launch-web' -Po
 EXPOSE 80
 
 COPY ServiceMonitor.exe /
-COPY bootstrap.ps1 /
-ENTRYPOINT ./bootstrap.ps1
+CMD ["C:\\ServiceMonitor.exe", "w3svc"]
