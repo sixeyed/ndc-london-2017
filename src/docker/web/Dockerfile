@@ -15,3 +15,10 @@ ENV MESSAGE_QUEUE_URL="nats://message-queue:4222"
 COPY ServiceMonitor.exe /
 COPY bootstrap.ps1 /
 ENTRYPOINT ./bootstrap.ps1
+
+HEALTHCHECK CMD powershell -command `
+    try { `
+     $response = iwr http://localhost:80 -UseBasicParsing; `
+     if ($response.StatusCode -eq 200) { return 0} `
+     else {return 1}; `
+    } catch { return 1 }
