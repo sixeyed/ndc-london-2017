@@ -1,3 +1,3 @@
 
 docker kill $(docker ps -q)
-drm
+docker rm $(docker ps -q)
